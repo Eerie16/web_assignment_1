@@ -1,52 +1,6 @@
 <html>
-<style>
-	#container {
-	
-    		width:100%;
-    		height:100%;
-    		border:1px solid;
-	}	
-	#right {display:flex;
-		justify-content:center;
-		align-items:center;
-		font-size:1.0em;
-		text-align:center;
-    		width:auto;
-    		height:100%;
-    		background:#d0f4ff;
-   		overflow:hidden;
-	}
-	#left {
-    		height:100%;
-    		width:20%%;
-    		background:#d5aaff;
-    		float:left;
-	}
-	button{
-    		background-color: #f3b6ff;
-    		border: all;
-		border-color:black:
-    		color: black;
-    		text-align: center;
-    		text-decoration: bold;
-    		display: inline-block;
-   		font-size: 16px;
-		width:100%;
-		height:10%;
-	}
-	
-	#supp{
-		display:block ;
-		font-size:50px; 
-		background-color: transparent;
-		text-align: left;
-		border-width: 0;
-		font-size:0px;
-		margin: 0 0 0 0;
-		color: black 	;
-	}
-</style>
 
+<link rel="stylesheet" type="text/css" href="att.css">
 <body>
 
 <div id="Container">         <!--This is the parent container(div)-->
@@ -62,51 +16,10 @@
 		<input id="supp" type="text" value="0"/>	    
 	</div>
 </div>
+<script src="myscript.js">
 
-<script> 
-//The function for throttling
-throttle = function(func, limit) {
-  	var inThrottle, lastFunc, throttleTimer;
-  	inThrottle = undefined;
-  	lastFunc = undefined;
-  	throttleTimer = undefined;
-  	return function() {
-  		var args, context;
-		context = this;
-    		args = arguments;
-   		if (inThrottle) {
-      			clearTimeout(lastFunc);
-      			return lastFunc = setTimeout(function() {
-        		func.apply(context, args);
-        		return inThrottle = false;
-      			}, limit);
-    		}
-		else {
-      			func.apply(context, args);
-      			inThrottle = true;
-      			return throttleTimer = setTimeout(function() {
-        		return inThrottle = false;
-      		}, limit);
-    	}
-  };
-};
-
-throttleBtn = document.getElementById('b1');
-
-scope = this;
-
-//adding eventlistner for mouseclick at the button 1.
-throttleBtn.addEventListener('click', throttle(function() { increaseFontSize() }, 2000)); 
-
-//Function for increasing the font size and the number of clicks
-function increaseFontSize() {
-	obj = document.getElementById('demo');
-	currentSize = parseFloat(obj.style.fontSize); 
-	document.getElementById('supp').value=parseInt(document.getElementById('supp').value,10)+1;
-	obj.innerHTML="Number of Clicks: "+parseInt(document.getElementById('supp').value,10);
-	obj.style.fontSize = (currentSize + .1) + "em";
-	
-}
 </script>
+
 </body>
 </html>
+
